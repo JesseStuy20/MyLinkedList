@@ -6,5 +6,15 @@ public class Node {
     data = value ;
   }
 
-  
+  public String getData() {
+    return data ;
+  }
+
+  public String setData(String value) {
+    String returnValue = data ;
+    data = value ;
+    return returnValue ;
+  }
+
+
 }
