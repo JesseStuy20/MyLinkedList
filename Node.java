@@ -16,6 +16,16 @@ public class Node {
     return returnValue ;
   }
 
+  public Node getPrev(Node prevNode) {
+    return prev ;
+  }
+
+  public Node setPrev(Node prevNode) {
+    Node returnValue = prev ;
+    prev = prevNode ;
+    return returnValue
+  }
+
   public Node getNext(Node nextNode) {
     return next ;
   }
