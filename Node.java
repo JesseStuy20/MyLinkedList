@@ -23,7 +23,7 @@ public class Node {
   public Node setPrev(Node prevNode) {
     Node returnValue = prev ;
     prev = prevNode ;
-    return returnValue
+    return returnValue ;
   }
 
   public Node getNext(Node nextNode) {
@@ -33,7 +33,7 @@ public class Node {
   public Node setNext(Node nextNode) {
     Node returnValue = next ;
     next = nextNode ;
-    return returnValue
+    return returnValue ;
   }
 
 

@@ -10,4 +10,14 @@ public class MyLinkedList {
     return size ;
   }
 
+  public boolean add(String value) {
+    Node a = new Node(value) ;
+    if (size == 0) {
+      start = a ;
+    }
+    end = a ;
+    size++ ;
+    return true ;
+  }
+
 }
