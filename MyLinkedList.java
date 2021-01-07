@@ -16,16 +16,39 @@ public class MyLinkedList {
     if (size == 1) {
       start = a ;
     }
-    if (size == 2) {
-      a.setPrev(start) ;
-      start.setNext(a) ;
-    }
-    if (size > 2) {
+    if (size > 1) {
       a.setPrev(end) ;
       end.setNext(a) ;
     }
     end = a ;
     return true ;
+  }
+/*
+  public String get(int index) {
+    String returnValue = start.getData() ;
+    for (int i=0; i<index; i++) {
+      returnValue = start.getData(start.getNext()) ;
+    }
+    return returnValue ;
+  }
+*/
+  public void add(int index, String value) {
+    Node a = new Node(value) ;
+    size++ ;
+    if (index == 0) {
+      a.setNext(start) ;
+      start.setPrev(a) ;
+      start = a ;
+    }
+    if (index == size()-1) {
+      end.setNext(a) ;
+      a.setPrev(end) ;
+      end = a ;
+    }
+    if ((index != 0) && (index != size()-1)) {
+      
+    }
+
   }
 
 }
