@@ -12,11 +12,19 @@ public class MyLinkedList {
 
   public boolean add(String value) {
     Node a = new Node(value) ;
-    if (size == 0) {
+    size++ ;
+    if (size == 1) {
       start = a ;
     }
+    if (size == 2) {
+      a.setPrev(start) ;
+      start.setNext(a) ;
+    }
+    if (size > 2) {
+      a.setPrev(end) ;
+      end.setNext(a) ;
+    }
     end = a ;
-    size++ ;
     return true ;
   }
 
