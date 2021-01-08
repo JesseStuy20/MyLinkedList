@@ -51,20 +51,32 @@ public class MyLinkedList {
       end = a ;
     }
     Node b = start ;
+    Node c = start ;
     if ((index != 0) && (index != size()-1)) {
       for (int i=0; i<index-1; i++) {
         b = b.getNext() ;
       }
+      for (int i=0; i<index; i++) {
+        c = c.getNext() ;
+      }
       b.setNext(a) ;
       a.setPrev(b) ;
-      b = b.getNext() ;
-      a.setNext(b) ;
-      b.setPrev(a) ;
+      c.setPrev(a) ;
+      a.setNext(c) ;
     }
 
   }
 
-
+  public String toString() {
+    String returnValue = "[" ;
+    Node a = start ;
+    for (int i=0; i<size-1; i++) {
+      returnValue = returnValue + a.getData() + ", " ;
+      a = a.getNext() ;
+    }
+    returnValue = returnValue + a.getData() + "]" ;
+    return returnValue ;
+  }
 
 
 }
