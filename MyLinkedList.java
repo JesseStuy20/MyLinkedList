@@ -86,12 +86,17 @@ public class MyLinkedList {
 
   public String toString() {
     String returnValue = "[" ;
-    Node a = start ;
-    for (int i=0; i<size-1; i++) {
-      returnValue = returnValue + a.getData() + ", " ;
-      a = a.getNext() ;
+    if (size > 0) {
+      Node a = start ;
+      for (int i=0; i<size-1; i++) {
+        returnValue = returnValue + a.getData() + ", " ;
+        a = a.getNext() ;
+      }
+      returnValue = returnValue + a.getData() + "]" ;
+  }
+    if (size == 0) {
+      returnValue = "[]" ;
     }
-    returnValue = returnValue + a.getData() + "]" ;
     return returnValue ;
   }
 
@@ -124,5 +129,13 @@ public class MyLinkedList {
     return returnValue.getData() ;
   }
 
+  public void extend(MyLinkedList other) {
+    (this.end).setNext(other.start) ;
+    (other.start).setPrev(this.end) ;
+    this.end = other.end ;
+    other.start = this.start ;
+    this.size = (this.size + other.size) ;
+    other.size = 0 ;
+  }
 
 }
