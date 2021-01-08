@@ -50,8 +50,16 @@ public class MyLinkedList {
       a.setPrev(end) ;
       end = a ;
     }
+    Node b = start ;
     if ((index != 0) && (index != size()-1)) {
-
+      for (int i=0; i<index-1; i++) {
+        b = b.getNext() ;
+      }
+      b.setNext(a) ;
+      a.setPrev(b) ;
+      b = b.getNext() ;
+      a.setNext(b) ;
+      b.setPrev(a) ;
     }
 
   }
