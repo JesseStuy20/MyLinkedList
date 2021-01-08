@@ -16,7 +16,7 @@ public class Node {
     return returnValue ;
   }
 
-  public Node getPrev(Node prevNode) {
+  public Node getPrev() {
     return prev ;
   }
 
@@ -26,7 +26,7 @@ public class Node {
     return returnValue ;
   }
 
-  public Node getNext(Node nextNode) {
+  public Node getNext() {
     return next ;
   }
 

@@ -23,15 +23,20 @@ public class MyLinkedList {
     end = a ;
     return true ;
   }
-/*
+
   public String get(int index) {
-    String returnValue = start.getData() ;
-    for (int i=0; i<index; i++) {
-      returnValue = start.getData(start.getNext()) ;
+    if (index >= size || index < 0) {
+      throw new IndexOutOfBoundsException();
     }
+    String returnValue = start.getData() ;
+    Node a = start ;
+    for (int i=0; i<index; i++) {
+      a = a.getNext() ;
+    }
+    returnValue = a.getData() ;
     return returnValue ;
   }
-*/
+
   public void add(int index, String value) {
     Node a = new Node(value) ;
     size++ ;
@@ -46,9 +51,12 @@ public class MyLinkedList {
       end = a ;
     }
     if ((index != 0) && (index != size()-1)) {
-      
+
     }
 
   }
+
+
+
 
 }
