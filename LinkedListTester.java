@@ -12,5 +12,8 @@ public class LinkedListTester {
     System.out.println(a.get(2)) ;
     a.add(2,"blueberries") ;
     System.out.println(a.toString()) ;
+    a.add("raspberries") ;
+    System.out.println(a.set(4,"mangoes")) ;
+    System.out.println(a.toString()) ;
   }
 }

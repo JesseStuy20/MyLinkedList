@@ -26,9 +26,9 @@ public class MyLinkedList {
 
   public String get(int index) {
     if (index >= size || index < 0) {
-      throw new IndexOutOfBoundsException();
+      throw new IndexOutOfBoundsException() ;
     }
-    String returnValue = start.getData() ;
+    String returnValue = "" ;
     Node a = start ;
     for (int i=0; i<index; i++) {
       a = a.getNext() ;
@@ -38,6 +38,9 @@ public class MyLinkedList {
   }
 
   public void add(int index, String value) {
+    if (index >= size || index < 0) {
+      throw new IndexOutOfBoundsException() ;
+    }
     Node a = new Node(value) ;
     size++ ;
     if (index == 0) {
@@ -65,6 +68,20 @@ public class MyLinkedList {
       a.setNext(c) ;
     }
 
+  }
+
+  public String set(int index, String value) {
+    if (index >= size || index < 0) {
+      throw new IndexOutOfBoundsException() ;
+    }
+    Node a = start ;
+    String returnValue = "" ;
+    for (int i=0; i<index; i++) {
+      a = a.getNext() ;
+    }
+    returnValue = a.getData() ;
+    a.setData(value) ;
+    return returnValue ;
   }
 
   public String toString() {
