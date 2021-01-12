@@ -33,6 +33,7 @@ public class LinkedListTester {
     System.out.println(fruitListTwo.toString()) ;
     fruitListOne.extend(fruitListTwo) ;
     System.out.println(fruitListOne.toString()) ;
+    System.out.println(fruitListOne.toStringReversed()) ;
     System.out.println(fruitListOne.size()) ;
     System.out.println(fruitListTwo.toString()) ;
     System.out.println(fruitListTwo.size()) ;

@@ -38,12 +38,16 @@ public class MyLinkedList {
   }
 
   public void add(int index, String value) {
-    if (index >= size || index < 0) {
+    if (index > size || index < 0) {
       throw new IndexOutOfBoundsException() ;
     }
     Node a = new Node(value) ;
     size++ ;
-    if (index == 0) {
+    if ((index == 0) && (size == 1)) {
+      start = a ;
+      end = a ;
+    }
+    if ((index == 0) && (size > 1)) {
       a.setNext(start) ;
       start.setPrev(a) ;
       start = a ;
@@ -100,16 +104,36 @@ public class MyLinkedList {
     return returnValue ;
   }
 
+  public String toStringReversed() {
+    String returnValue = "[" ;
+    if (size > 0) {
+      Node a = end ;
+      for (int i=0; i<size-1; i++) {
+        returnValue = returnValue + a.getData() + ", " ;
+        a = a.getPrev() ;
+      }
+      returnValue = returnValue + a.getData() + "]" ;
+  }
+    if (size == 0) {
+      returnValue = "[]" ;
+    }
+    return returnValue ;
+  }
+
   public String remove(int index) {
     if (index >= size || index < 0) {
       throw new IndexOutOfBoundsException() ;
     }
     Node returnValue = start ;
-    if (index == 0) {
+    if ((index == 0) && (size == 1)) {
+      start = start.getPrev() ;
+      end = end.getNext() ;
+    }
+    if ((index == 0) && (size > 1)) {
       start = returnValue.getNext() ;
       start.setPrev(returnValue.getPrev()) ;
     }
-    if (index == size()-1) {
+    if ((index > 0) && (index == size()-1)) {
       returnValue = end ;
       end = returnValue.getPrev() ;
       end.setNext(returnValue.getNext()) ;
@@ -130,12 +154,23 @@ public class MyLinkedList {
   }
 
   public void extend(MyLinkedList other) {
-    (this.end).setNext(other.start) ;
-    (other.start).setPrev(this.end) ;
-    this.end = other.end ;
-    other.start = this.start ;
-    this.size = (this.size + other.size) ;
-    other.size = 0 ;
+    if ((this.size() > 0) && (other.size() > 0)) {
+      (this.end).setNext(other.start) ;
+      (other.start).setPrev(this.end) ;
+      this.end = other.end ;
+      other.start = this.start ;
+      this.size = (this.size + other.size) ;
+      other.size = 0 ;
+    }
+    if ((this.size() >= 0) && (other.size() == 0)) {
+      this.size = this.size ;
+    }
+    if ((this.size() == 0) && (other.size() > 0)) {
+      this.start = other.start ;
+      this.end = other.end ;
+      this.size = other.size ;
+    }
+
   }
 
 }
